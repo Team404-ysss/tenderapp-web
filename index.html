@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Exo+2" rel="stylesheet">
+
+	<style>
+		body {
+			background: linear-gradient(to right bottom,#182e69,#08437d,#00588f,#006d9e,#0182ac);
+			color: white;
+			font-family: 'Baloo Chettan', cursive;
+
+		}
+		.content {
+			display: flex;
+			flex: 1 0 auto;
+			align-items: center;
+			height: 100vh;
+		}
+		h1 {
+			font-size: 60px;
+			font-weight: bold;
+		}
+		#description {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		#description p {
+			font-family: 'Exo 2', sans-serif;
+		}
+		#authorization {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 40vh;
+			background: #fff;
+			max-width: 350px;
+			border-radius: 10px;
+			color: black;
+		}
+		#authorization-links {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 40px;
+		}
+		#authorization-links a:first-child button {
+			color: white;
+    		background: rgb(9,53,122);
+		}	
+		button {
+			border-style: none;
+			height: 40px;
+			width: 150px;
+			border-radius: 5px;
+			font-family: 'Exo 2', sans-serif;
+			font-weight: bold;
+			font-size: 1.25em;
+		}
+		#log-in {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="container" id="main-container">
+			<div class="row">
+				<div class="col-sm-6" id="description"><h1>Welcome to TenderApp</h1><p>We make it simple to host and bid tenders.</p></div><!-- .col-sm-6 -->
+				<div class="col-sm-6" id="authorization">
+					<h2>Start using!</h2>
+					<div id="authorization-links">
+						<a href="#"><button id="sign-up">Sign Up</button></a>
+						<a href="#"><button id="log-in">Log In</button></a>
+					</div><!-- #authorization-links -->
+				</div><!-- .col-sm-6 -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div><!-- .content -->
+</body>
+</html>
