@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		form{
+			display:none;
+		}
+		#snippet{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="addnewproject()">Add</button>  
+	<div id="snippet"> <!---snippets appear here ---></div>
+	<form id="newpost">
+		<input type="text" placeholder="Project Title" required>
+		<input type = "text" placeholder = "Description" required>
+		<input type = "text" placeholder="Budget Range">
+		<button type="submit">POST</button>
+	</form>
+
+
+
+</body>
+<script type="text/javascript">
+	var i = 3;   //no. of bids
+	for(j=1;j<=i;j++){
+			document.getElementById('snippet').innerHTML += "<div id=\"container"+j+"\"><div id=\"project-title"+j+"\"></div><hr><div id=\"project-content"+j+"\"></div><div>";
+			var s = document.getElementById('container'+j);
+	 		var pt = document.getElementById('project-title'+j);
+	 		var pc = document.getElementById('project-content'+j);										
+			s.style.border = "1px solid black";
+			s.style.borderRadius = "3%";
+			s.style.margin = "10% 0 0 33%";
+			s.style.width = "30%";
+			pt.style.margin = "0 0 0 33%";
+			pc.style.margin = "0 0 0 5%";
+			pc.padding = "2%";
+			pt.innerHTML = "<a href="+"projects.html"+">title goes here</a>";
+			pc.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et officia aut ipsam. Recusandae a error, nihil perferendis nisi, dolores ut. Sunt dolorem inventore architecto sapiente rerum ullam est optio repudiandae.";
+
+	}
+</script>
+<script type="text/javascript">
+	var x = 0;
+	function addnewproject(){
+		if(x == 0){
+			document.getElementById('snippet').style.display = "none";
+			document.getElementById('newpost').style.display = "block";
+			x=1;
+		}
+		else if(x==1){
+			document.getElementById('newpost').style.display = "none";
+			document.getElementById('snippet').style.display = "block";
+			x=0;
+		}
+	}
+</script>
+</html>
