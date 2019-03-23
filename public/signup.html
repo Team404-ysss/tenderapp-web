@@ -1,25 +1,14 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Exo+2|Righteous|Titan+One" rel="stylesheet">
-	
+	<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyAhMIyNFN31gW9YYHxTvz3T5FSJ4Sx1Uek",
-	    authDomain: "tender-261f1.firebaseapp.com",
-	    databaseURL: "https://tender-261f1.firebaseio.com",
-	    projectId: "tender-261f1",
-	    storageBucket: "tender-261f1.appspot.com",
-	    messagingSenderId: "175461595113"
-	  };
-	  firebase.initializeApp(config);
-	</script>
-
 
 	<style>
 		body {
@@ -85,15 +74,15 @@
 						<h1 class="text-center">Sign Up</h1>
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" class="form-control form-control-lg" id="input-email" placeholder="Enter email">
+							<input type="email" class="form-control form-control-lg" id="input-email" placeholder="Enter email" required>
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input type="password" class="form-control form-control-lg" id="input-password" placeholder="Password">
+							<input type="password" class="form-control form-control-lg" id="input-password" placeholder="Password" required>
 						</div>
 						<div class="form-group">
 							<label>Confirm Password</label>
-							<input type="password" class="form-control form-control-lg" id="confirm-password" placeholder="Confirm password">
+							<input type="password" class="form-control form-control-lg" id="confirm-password" placeholder="Confirm password" required>
 						</div>
 						<button type="submit" id = "btn1">Sign Up</button>
 					</form>
@@ -103,12 +92,4 @@
 	</div><!-- .content -->
 	<script src="signup_auth.js"></script>
 </body>
-<!-- <script type="text/javascript">
-	document.getElementById('btn1').disabled = true;
-	var pwd = document.getElementById('input-password').value;
-	var cpwd = document.getElementById('confirm-password').value;
-	if(!pwd.localeCompare(cpwd)){
-		document.getElementById('btn1').disabled = false;
-	}
-</script> -->
 </html>

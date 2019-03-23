@@ -9,18 +9,16 @@
 	    messagingSenderId: "175461595113"
 	};
 	firebase.initializeApp(config);
-
-	// getting elements from a form
-	const email = document.getElementById('input-email');
-	const pwd = document.getElementById('input-password');
-	const submit = document.getElementById('btn1');
-
-	//login
-	submit.addEventListener('click', e =>{
-		const email = email.value;
-		const pass = pwd.value;
-		const auth  = firebase.auth();
-		auth.signInWithEmailAndPassword(email,pass);
-		promise.catch(e => console.log(e.message));
+	auth = firebase.auth();
+	$('#btn1').click(function(e) {
+		e.preventDefault();
+		auth.signInWithEmailAndPassword($('#input-email').val(), $('#input-password').val());
+	});
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+		if (firebaseUser) {
+			window.location = "project1.html";
+		} else {
+			console.log("Wrong");
+		}
 	});
 }());

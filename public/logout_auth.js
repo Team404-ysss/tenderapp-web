@@ -1,4 +1,4 @@
- (function(){
+(function(){
 	// initialising firebase
 	const config = {
 	    apiKey: "AIzaSyAhMIyNFN31gW9YYHxTvz3T5FSJ4Sx1Uek",
@@ -9,13 +9,17 @@
 	    messagingSenderId: "175461595113"
 	};
 	firebase.initializeApp(config);
-	auth = firebase.auth();
-	$('#btn1').click(function(e) {
+	console.log(firebase.auth());
+	$('#logout-link').click(function(e) {
+		console.log("DONE");
 		e.preventDefault();
-		console.log($('#input-password').val(), $('#confirm-password').val());
-		if ($('#input-password').val() !== $('#confirm-password').val()) {
-			alert("Passwords don't match");
+		firebase.auth().signOut();
+	});
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+		if (!firebaseUser) {
+			window.location = "login1.html";
+		} else {
+			console.log("Wrong");
 		}
-		auth.createUserWithEmailAndPassword($('#input-email').val(), $('#input-password').val());
 	});
 }());

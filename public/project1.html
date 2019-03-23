@@ -9,10 +9,15 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Exo+2|Righteous|Titan+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Exo+2|Righteous|Titan+One|Comfortaa" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+
 	<style>
 		body, html {
 		    overflow-x: hidden;
+		}
+		body {
+			font-family: 'Comfortaa', sans-serif;
 		}
 		a {
 			color: rgb(1, 130, 172);
@@ -48,15 +53,24 @@
 		.post-content {
 			max-width: 1100px;
 			margin: 0 auto;
-			font-family: 'Roboto', sans-serif;
 			font-size: 1.1em;
 			margin-bottom: 30px;
+		}
+		.post-content h1 {
+			font-weight: bold;
+			color: rgba(1, 130, 172, 0.85);
 		}
 		.bid-actions {
 			display: flex;
 		    justify-content: center;
 		    align-items: center;
 		    flex-direction: column;
+		}
+		.bid-details {
+			font-family: 'Comfortaa', sans-serif;
+		}
+		.values {
+			color: rgba(1, 130, 172);
 		}
 		.sumome-share-client-large {
 			margin-top: 20px !important;
@@ -104,13 +118,6 @@
 		    flex-direction: row;
 		    border-radius: 15px;
 		}
-		.card-title {
-			font-family: 'Playfair Display', sans-serif;
-		    /*color: black;*/
-		}
-		.card-title:hover {
-		    color: rgba(1, 130, 172, 0.85);
-		}
 		.card-excerpt {
 			color: #777;
 		}
@@ -134,7 +141,7 @@
 			color: white;
 			background: rgb(9,53,122);
 		}
-		#mainNav{background-color:white;}#mainNav .navbar-toggler{font-size:12px;right:0;padding:13px;text-transform:uppercase;color:white;border:0;background-color:#0182AC;font-family:'Exo 2',sans-serif}#mainNav .navbar-brand{padding:0!important}#mainNav .navbar-brand img{height:50px}#mainNav .navbar-nav .nav-item .nav-link{font-size:1em;font-weight:600;padding:.75em 0;letter-spacing:1px;color:black;font-family:'Exo 2',sans-serif}#mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover{color:#0182AC}@media (min-width:992px){#mainNav{padding-top:25px;padding-bottom:25px;-webkit-transition:padding-top 0.3s,padding-bottom 0.3s;-moz-transition:padding-top 0.3s,padding-bottom 0.3s;transition:padding-top 0.3s,padding-bottom 0.3s;border:none;background-color:transparent}#mainNav .navbar-brand{font-size:1.75em;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s}#mainNav .navbar-nav .nav-item .nav-link{padding:1.1em 1em!important}#mainNav.navbar-shrink{padding-top:0;padding-bottom:0;background-color:white}#mainNav.navbar-shrink .navbar-brand{font-size:1.25em}#mainNav .container{padding:10px;}}#searchform{margin: 30% 0 0 15%;}
+		#mainNav{background-color:white;}#mainNav .navbar-toggler{font-size:12px;right:0;padding:13px;text-transform:uppercase;color:white;border:0;background-color:#0182AC;font-family:'Comfortaa',sans-serif}#mainNav .navbar-brand{padding:0!important}#mainNav .navbar-brand img{height:50px}#mainNav .navbar-nav .nav-item .nav-link{font-size:1em;font-weight:600;padding:.75em 0;letter-spacing:1px;color:black;font-family:'Comfortaa',sans-serif}#mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover{color:#0182AC}@media (min-width:992px){#mainNav{padding-top:25px;padding-bottom:25px;-webkit-transition:padding-top 0.3s,padding-bottom 0.3s;-moz-transition:padding-top 0.3s,padding-bottom 0.3s;transition:padding-top 0.3s,padding-bottom 0.3s;border:none;background-color:transparent}#mainNav .navbar-brand{font-size:1.75em;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s}#mainNav .navbar-nav .nav-item .nav-link{padding:1.1em 1em!important}#mainNav.navbar-shrink{padding-top:0;padding-bottom:0;background-color:white}#mainNav.navbar-shrink .navbar-brand{font-size:1.25em}#mainNav .container{padding:10px;}}#searchform{margin: 30% 0 0 15%;}
 	</style>
 	
 </head>
@@ -148,23 +155,11 @@
 	        <div class="collapse navbar-collapse" id="navbarResponsive">
 	            <ul class="navbar-nav text-uppercase ml-auto">
 	                <li class="nav-item">
-	                    <a id="home-link" class="nav-link" href={{ "/" | relative_url }}>Home</a>
+	                    <a id="home-link" class="nav-link">Home</a>
 	                </li>
 	                <li class="nav-item">
-	                    <a id="student-affairs-link" class="nav-link" href="#">Student Affairs</a>
-	                </li>
-	                <li class="nav-item">
-	                    <a id="professors-corner-link" class="nav-link" href="#">Professors' Corner</a>
-	                </li>
-	                <li class="nav-item active">
-	                    <a id="alumni-link" class="nav-link" href="#">Alumni</a>
-	                </li>
-	                <li class="nav-item">
-	                    <a id="about-link" class="nav-link" href={{ "/about" | relative_url }}>About</a>
-	                </li>
-	                <li class="nav-item">
-	                    <a id="career-center-link" class="nav-link" href={{ "/career_center" | relative_url }}>Career Center</a>
-	                </li>
+	                	<div id="logout-link" class="nav-link" style="cursor: pointer;">Log Out</div>
+	                </li><!-- .nav-item -->
 	            </ul>
 	        </div>
 	    </div>
@@ -191,9 +186,9 @@
                         <div class="card-body">
                             <div class="post-details">
                             	<div class="bid-details">
-                            		<h2 class="card-title">Bid amount: &#8377; 200000</h2>
-                            		<h3 class="name">Bidder name: Lorem ipsum</h3><!-- .name -->
-                            		<h3 class="score">Credibility score: 10</h3><!-- .score -->
+                            		<h2 class="card-title">Bid amount: <span class="values">&#8377; 200000</span></h2>
+                            		<h3 class="name">Bidder name: <span class="values">Lorem ipsum</span><!-- .values --></h3><!-- .name -->
+                            		<h3 class="score">Credibility score: <span class="values">10</span></h3><!-- .score -->
                             	</div><!-- .bid-details -->
                             	<div class="bid-actions">
                             		<button class="see-profile">See Profile</button>
@@ -209,6 +204,7 @@
 	<script>
 		$('#main-container').css("margin-top", $('nav').height());
 	</script>
+	<script src="logout_auth.js"></script>
 </body>
 </html>
 
