@@ -17,6 +17,7 @@
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if (firebaseUser) {
 			window.location = "project1.html";
+			// console.log(firebaseUser);
 		} else {
 			console.log("Wrong");
 		}

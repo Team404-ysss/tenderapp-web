@@ -9,7 +9,6 @@
 	    messagingSenderId: "175461595113"
 	};
 	firebase.initializeApp(config);
-	console.log(firebase.auth());
 	$('#logout-link').click(function(e) {
 		console.log("DONE");
 		e.preventDefault();
@@ -17,7 +16,7 @@
 	});
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if (!firebaseUser) {
-			window.location = "login1.html";
+			window.location = "index.html";
 		} else {
 			console.log("Wrong");
 		}

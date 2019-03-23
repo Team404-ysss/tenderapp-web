@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Exo+2|Righteous|Titan+One|Comfortaa" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+
+
+	<style>
+		body {
+			background: linear-gradient(to right bottom,#182e69,#08437d,#00588f,#006d9e,#0182ac);
+			color: white;
+			font-family: 'Baloo Chettan', cursive;
+
+		}
+		.content {
+			display: flex;
+			flex: 1 0 auto;
+			align-items: center;
+			height: 100vh;
+		}
+		h1 {
+			font-size: 60px;
+			font-weight: bold;
+		}
+		h2 {
+			font-size: 40px;
+			color: white;
+		}
+		#description {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background: #0182ac;
+			border-radius: 15px;
+			
+			padding: 25px;
+		}
+
+		#description p {
+			font-family: 'Exo 2', sans-serif;
+		}
+		#authorization {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 40vh;
+			background: #0182ac;
+			max-width: 350px;
+			border-radius: 10px;
+			color: black;
+		}
+		#authorization-links {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 40px;
+		}
+		button {
+			border-style: none;
+			height: 40px;
+			width: 400px;
+			border-radius: 5px;
+			font-family: 'Exo 2', sans-serif;
+			font-weight: bold;
+			font-size: 1.25em;
+			background: rgb(9,53,122);
+			color: white;
+			margin-left: 50%;
+			transform: translateX(-50%);
+			margin-top: 20px;
+		}
+		#log-in {
+			margin-top: 10px;
+		}
+		#mainNav{background-color:white;}#mainNav .navbar-toggler{font-size:12px;right:0;padding:13px;text-transform:uppercase;color:white;border:0;background-color:#0182AC;font-family:'Comfortaa',sans-serif}#mainNav .navbar-brand{padding:0!important}#mainNav .navbar-brand img{height:50px}#mainNav .navbar-nav .nav-item .nav-link{font-size:1em;font-weight:600;padding:.75em 0;letter-spacing:1px;color:black;font-family:'Comfortaa',sans-serif}#mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover{color:#0182AC}@media (min-width:992px){#mainNav{padding-top:25px;padding-bottom:25px;-webkit-transition:padding-top 0.3s,padding-bottom 0.3s;-moz-transition:padding-top 0.3s,padding-bottom 0.3s;transition:padding-top 0.3s,padding-bottom 0.3s;border:none;background-color:transparent}#mainNav .navbar-brand{font-size:1.75em;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s}#mainNav .navbar-nav .nav-item .nav-link{padding:1.1em 1em!important}#mainNav.navbar-shrink{padding-top:0;padding-bottom:0;background-color:white}#mainNav.navbar-shrink .navbar-brand{font-size:1.25em}#mainNav .container{padding:10px;}}#searchform{margin: 30% 0 0 15%;}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink animated fadeInDown" id="mainNav">
+	    <div class="container">
+	        <a class="navbar-brand" href="#page-top"></a>
+	        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	            Menu
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarResponsive">
+	            <ul class="navbar-nav text-uppercase ml-auto">
+	                <li class="nav-item">
+	                    <a id="home-link" class="nav-link active">Home</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a id="my-projects-link" class="nav-link" >My Projects</a>
+	                </li>
+
+	                <li class="nav-item">
+	                	<div id="logout-link" class="nav-link" style="cursor: pointer;">Log Out</div>
+	                </li><!-- .nav-item -->
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+	<div class="content">
+		<div class="container" id="main-container">
+			<div class="row">
+				<div class="col-sm-6 offset-sm-3" id="description"><h3>Hello, new user! You can host a tender here by clicking on the Add New Tender button. Go ahead and try it out!</h3>
+				<button>Add New Tender</button>
+			</div><!-- .row -->
+
+		</div><!-- .container -->
+	</div><!-- .content -->
+	<script src="logout_auth.js"></script>
+</body>
+</html>

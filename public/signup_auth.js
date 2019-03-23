@@ -12,10 +12,15 @@
 	auth = firebase.auth();
 	$('#btn1').click(function(e) {
 		e.preventDefault();
-		console.log($('#input-password').val(), $('#confirm-password').val());
+		// console.log($('#input-password').val(), $('#confirm-password').val());
 		if ($('#input-password').val() !== $('#confirm-password').val()) {
 			alert("Passwords don't match");
 		}
 		auth.createUserWithEmailAndPassword($('#input-email').val(), $('#input-password').val());
+	});
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+		if (firebaseUser) {
+			window.location = "new_user.html";
+		}
 	});
 }());
