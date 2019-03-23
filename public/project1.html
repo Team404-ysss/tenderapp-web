@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Exo+2|Righteous|Titan+One" rel="stylesheet">
+	<style>
+		body, html {
+		    overflow-x: hidden;
+		}
+		a {
+			color: rgb(1, 130, 172);
+		}
+		#main-container {
+			padding: 20px;
+			padding-top: 0;
+		}
+		#content-row {
+			padding: 40px;
+		}
+		#post-column {
+			padding-right: 50px;
+		}
+		.featured-img {
+			width: 100%;
+			margin: 30px auto;
+			max-width: 1100px;
+		}
+		.mobile-share {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+		.post-title {
+			font-family: 'Playfair Display', sans-serif;
+			font-size: 3.5em;
+		}
+		.post-details {
+			display: flex;
+			justify-content: space-around;
+		}
+		.post-content {
+			max-width: 1100px;
+			margin: 0 auto;
+			font-family: 'Roboto', sans-serif;
+			font-size: 1.1em;
+			margin-bottom: 30px;
+		}
+		.bid-actions {
+			display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    flex-direction: column;
+		}
+		.sumome-share-client-large {
+			margin-top: 20px !important;
+		}
+
+		@media screen and (max-width: 1200px) {
+			#sidebar {
+				margin-top: 30px;
+				border-top: 2px solid #ccc;
+			}
+		    #ad {
+		        margin-top: auto !important;
+		    }
+		    #main-container {
+		        padding: 30px;
+		    }
+		    #sidebar {
+		        padding: 40px;
+		    }
+		    .card-excerpt {
+		        height: 4.5em;
+		        overflow: hidden;
+		    }
+		}
+
+		@media screen and (max-width: 992px) {
+			.col-xl-2 {
+				display: none;
+			}
+		}
+		@media screen and (max-width: 600px) {
+		    #main-container {
+		        padding: 15px;
+		    }
+		    #sidebar {
+		        padding: 20px 30px;
+		    }
+		    #ad {
+		        margin-top: 40px !important;
+		    }
+		}
+		.card {
+		    margin: 20px auto;
+		    border-color: rgba(0,0,0,0.2);
+		    flex-direction: row;
+		    border-radius: 15px;
+		}
+		.card-title {
+			font-family: 'Playfair Display', sans-serif;
+		    /*color: black;*/
+		}
+		.card-title:hover {
+		    color: rgba(1, 130, 172, 0.85);
+		}
+		.card-excerpt {
+			color: #777;
+		}
+		.card-img-top {
+		    /*object-fit: cover;*/
+		    max-width: 100%;
+		    /*max-height: 200px;*/
+		}
+		button {
+			border-style: none;
+			height: 40px;
+			width: 150px;
+			border-radius: 5px;
+			font-weight: bold;
+			font-size: 1.25em;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			color: black;
+		}
+		button:not(:first-child) {
+			color: white;
+			background: rgb(9,53,122);
+		}
+		#mainNav{background-color:white;}#mainNav .navbar-toggler{font-size:12px;right:0;padding:13px;text-transform:uppercase;color:white;border:0;background-color:#0182AC;font-family:'Exo 2',sans-serif}#mainNav .navbar-brand{padding:0!important}#mainNav .navbar-brand img{height:50px}#mainNav .navbar-nav .nav-item .nav-link{font-size:1em;font-weight:600;padding:.75em 0;letter-spacing:1px;color:black;font-family:'Exo 2',sans-serif}#mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover{color:#0182AC}@media (min-width:992px){#mainNav{padding-top:25px;padding-bottom:25px;-webkit-transition:padding-top 0.3s,padding-bottom 0.3s;-moz-transition:padding-top 0.3s,padding-bottom 0.3s;transition:padding-top 0.3s,padding-bottom 0.3s;border:none;background-color:transparent}#mainNav .navbar-brand{font-size:1.75em;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s}#mainNav .navbar-nav .nav-item .nav-link{padding:1.1em 1em!important}#mainNav.navbar-shrink{padding-top:0;padding-bottom:0;background-color:white}#mainNav.navbar-shrink .navbar-brand{font-size:1.25em}#mainNav .container{padding:10px;}}#searchform{margin: 30% 0 0 15%;}
+	</style>
+	
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink animated fadeInDown" id="mainNav">
+	    <div class="container">
+	        <a class="navbar-brand" href="#page-top"></a>
+	        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	            Menu
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarResponsive">
+	            <ul class="navbar-nav text-uppercase ml-auto">
+	                <li class="nav-item">
+	                    <a id="home-link" class="nav-link" href={{ "/" | relative_url }}>Home</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a id="student-affairs-link" class="nav-link" href="#">Student Affairs</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a id="professors-corner-link" class="nav-link" href="#">Professors' Corner</a>
+	                </li>
+	                <li class="nav-item active">
+	                    <a id="alumni-link" class="nav-link" href="#">Alumni</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a id="about-link" class="nav-link" href={{ "/about" | relative_url }}>About</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a id="career-center-link" class="nav-link" href={{ "/career_center" | relative_url }}>Career Center</a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+	<!-- #nav -->
+	<div>
+	</div><!-- .featured-img -->
+	<div id="main-container" class="container-fluid">
+		<div class="row">
+			<div class="col-xl-8 col-lg-10 offset-xl-2 offset-lg-1">
+				<div class="post-title"><h1>Project details</h1></div><!-- .post-title -->
+				<hr>
+				<div class="post-content">
+					<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, cum!</h1>
+					<div class="project-description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde vitae quos suscipit minima impedit, cupiditate officiis quae perferendis earum esse nisi vero quisquam facere mollitia doloribus iusto incidunt inventore quam at animi eius quo necessitatibus tenetur dolores excepturi. Temporibus repudiandae, molestiae quibusdam nihil, veritatis vel provident ipsa eveniet odit repellendus.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum id ab temporibus similique vero? Ex, suscipit. Aperiam laborum, harum quo fuga, perspiciatis earum doloribus itaque doloremque ea, dicta ut culpa tenetur quia animi facilis similique ullam optio veritatis dignissimos voluptatibus? Quaerat eos unde, optio adipisci magnam? Nam velit cupiditate, possimus ut, sapiente sit eaque facere. Tempore aspernatur cumque molestiae nihil.</p></div><!-- .project-description -->
+				</div><!-- .post-content -->
+				<hr>
+				<div class="bidder-info">
+					<d class="post-title">
+						<h1>Bidders (<span class="count">2</span>)</h1>
+					</d><!-- .post-title -->
+                    <div class="card">
+                        <a href="#"><img src="default_author.png" alt="" class="card-img-top"></a>
+                        <div class="card-body">
+                            <div class="post-details">
+                            	<div class="bid-details">
+                            		<h2 class="card-title">Bid amount: &#8377; 200000</h2>
+                            		<h3 class="name">Bidder name: Lorem ipsum</h3><!-- .name -->
+                            		<h3 class="score">Credibility score: 10</h3><!-- .score -->
+                            	</div><!-- .bid-details -->
+                            	<div class="bid-actions">
+                            		<button class="see-profile">See Profile</button>
+                            		<button class="accept-bid">Accept Bid</button>
+                            	</div><!-- .bid-actions -->
+                            </div><!-- .post-details -->
+                        </div> <!-- card-body -->
+                    </div> <!-- card -->
+				</div><!-- .bidder-info -->
+			</div>
+		</div><!-- .row -->
+	</div><!-- #main-container.container-fluid -->
+	<script>
+		$('#main-container').css("margin-top", $('nav').height());
+	</script>
+</body>
+</html>
+
+<!-- Template for a blog post -->
